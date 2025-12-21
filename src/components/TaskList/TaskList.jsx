@@ -1,26 +1,36 @@
-import React from 'react'
-import AcceptTask from './AcceptTask'
-import NewTask from './NewTask'
+import React from "react";
+import AcceptTask from "./AcceptTask";
+import NewTask from "./NewTask";
+import CompleteTask from "./CompleteTask";
+import FailedTask from "./FailedTask";
 
-const TaskList = ({data}) => {
+const TaskList = ({ data }) => {
   return (
-    <div id='tasklist' className='h-[45%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full mt-10 py-5 rounded-lg'>
-       <AcceptTask />
-        <NewTask />
-        
-         <div className='flex-shrink-0 h-full w-[285px] p-5 bg-red-400 mx-5 rounded-xl'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
-                <h4 className='text-sm'>15 Dec 2025</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-semibold'>Make a youtube video</h2>
-            <p className='text-sm mt-2'>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit temporibus dolores nam, maxime repellendus maiores.
-            </p>
-        </div>
+    <div
+      id="tasklist"
+      className="h-[45%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full mt-10 py-5 rounded-lg"
+    >
+        {data?.tasks?.map((task, index) => {
+        if (task.failed) {
+          return <FailedTask key={index} task={task} />
+        }
 
+        if (task.completed) {
+          return <CompleteTask key={index} task={task} />
+        }
+
+        if (task.newTask) {
+          return <NewTask key={index} task={task} />
+        }
+
+        if (task.status) {
+          return <AcceptTask key={index} task={task} />
+        }
+
+        return null
+      })} 
     </div>
-  )
-}
+  );
+};
 
-export default TaskList
+export default TaskList;
