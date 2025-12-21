@@ -9,6 +9,10 @@ const Header = ({data}) => {
   //   setUserName(data.firstName)
   // }
 
+  const logOut = () =>{
+    localStorage.setItem('loggedInUser', '')
+    window.location.reload()
+  }
   return (
     <div className='flex items-end justify-between'> 
         <h1 className='text-2xl font-medium'>
@@ -19,7 +23,9 @@ const Header = ({data}) => {
             </span>
             </h1>
 
-        <button className='bg-red-600 text-white text-lg font-medium px-6 py-2 rounded-sm'>Logout</button>
+        <button
+        onClick={logOut}
+         className='bg-red-600 text-white text-lg font-medium px-6 py-2 rounded-sm'>Logout</button>
     </div>
   )
 }
