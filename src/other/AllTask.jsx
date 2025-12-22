@@ -17,12 +17,12 @@ const AllTask = () => {
         </div>
     <div className='h-[80%] overflow-auto'>
         {authData.employees.map(function(elem){
-        return  <div className='bg-gray-800 mb-2 py-2 px-4 flex justify-between rounded'>
+        return  <div className='bg-gray-900 border-2 border-emerald-500 mb-2 py-2 px-4 flex justify-between rounded'>
             <h2 className='w-1/5'>{elem.firstName}</h2>
             <h3 className='w-1/5 text-blue-400'>Task</h3>
             <h5 className='w-1/5 text-yellow-400'>Status</h5>
-            <h5 className='w-1/5 text-green-700'>Status</h5>
-            <h5 className='w-1/5 text-red-800'>Status</h5>
+            <h5 className='w-1/5 text-green-400'>Status</h5>
+            <h5 className='w-1/5 text-red-400'>Status</h5>
         </div>
       })}
     </div>
