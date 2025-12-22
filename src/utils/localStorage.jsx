@@ -19,7 +19,7 @@ const employees = [
         date: "2025-01-10",
         category: "Frontend",
         status: true,
-        newTask: true,
+        newTask: false,
         completed: false,
         failed: false
       },

@@ -2,7 +2,7 @@ import React from 'react'
 
 const NewTask = () => {
   return (
-    <div className='flex-shrink-0 h-full w-[285px] p-5 bg-blue-400 mx-5 rounded-xl'>
+    <div className='shrink-0 h-full w-71.25 p-5 bg-red-400 mx-5 rounded-xl relative'>
             <div className='flex justify-between items-center'>
                 <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>High</h3>
                 <h4 className='text-sm'>15 Dec 2025</h4>
@@ -11,8 +11,10 @@ const NewTask = () => {
             <p className='text-sm mt-2'>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit temporibus dolores nam, maxime repellendus maiores.
             </p>
-            <div className='mt-8 flex justify-between'>
-                <button className=''>Accept Task</button>
+            <div className='absolute flex justify-between gap-3 bottom-5 left-5 right-5'>
+                <button className='bg-green-600 flex-1 text-white text-sm py-2 rounded-md
+               hover:bg-red-700 active:scale-95
+               shadow-md hover:shadow-lg transition-all duration-200'>Accept Task</button>
 
             </div>
         </div>

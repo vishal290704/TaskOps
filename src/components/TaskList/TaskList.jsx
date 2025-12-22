@@ -12,23 +12,34 @@ const TaskList = ({ data }) => {
     >
         {data?.tasks?.map((task, index) => {
         if (task.failed) {
-          return <FailedTask key={index} task={task} data={data} />
+          return <FailedTask key={index} task={task}  />
         }
 
         if (task.completed) {
-          return <CompleteTask key={index} task={task} data={data} />
+          return <CompleteTask key={index} task={task} />
         }
 
         if (task.newTask) {
-          return <NewTask key={index} task={task} data={data}/>
+          return <NewTask key={index} task={task}/>
         }
 
-        if (task.status) {
-          return <AcceptTask key={index} task={task} data={data}/>
+    //     if (task.status) {
+    //       return <AcceptTask key={index} task={task}/>
+    //     }
+
+    //     return null
+    //   })} 
+     if (
+          task.status &&
+          !task.newTask &&
+          !task.completed &&
+          !task.failed
+        ) {
+          return <AcceptTask key={index} task={task} />;
         }
 
-        return null
-      })} 
+        return null;
+      })}
     </div>
   );
 };
