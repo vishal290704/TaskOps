@@ -9,7 +9,13 @@ const CreateTask = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("Task Created");
+    // console.log("Task Created");
+    setTaskTitle('')
+    setTaskDescription('')
+    setTaskDate('')
+    setAssignTo('')
+    setCategory('')
+    
   };
   return (
     <div className="p-5 bg-[#1c1c1c] mt-7 rounded">
