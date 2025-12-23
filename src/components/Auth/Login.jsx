@@ -13,7 +13,7 @@ const Login = ({ handleLogin }) => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0f172a]">
-      {/* Login Card */}
+      {/* Outer login part */}
       <div
         className="bg-[#111827] border border-gray-700 
                 rounded-xl p-12 w-105 
