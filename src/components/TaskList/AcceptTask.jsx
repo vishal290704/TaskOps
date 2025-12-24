@@ -1,7 +1,7 @@
 import React from 'react'
 
 const AcceptTask = ({task}) => {
-  console.log(task.title);
+  // console.log(task.title);
   
   return (
      <div className='shrink-0 h-full w-71.25 p-5 bg-red-400 mx-5 rounded-xl relative'>

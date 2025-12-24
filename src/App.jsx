@@ -16,7 +16,7 @@ useEffect(()=>{
 
   if(loggedInUser){
     const userData = JSON.parse(loggedInUser)
-    console.log(userData);
+    // console.log(userData);
     setUser(userData.role)
     setLoggedInUserData(userData.data)
   }
@@ -46,7 +46,7 @@ useEffect(()=>{
   return (
     <>
     {!user ? <Login handleLogin={handleLogin} /> : ''}
-    {user =='admin' ? <AdminDashboard/> : (user == 'employee' ? <EmployeeDashboard loggedInUserData={loggedInUserData} /> : '')}
+    {user =='admin' ? <AdminDashboard changeUser = {setUser}/> : (user == 'employee' ? <EmployeeDashboard changeUser = {setUser} loggedInUserData={loggedInUserData} /> : '')}
     
     </>
   )

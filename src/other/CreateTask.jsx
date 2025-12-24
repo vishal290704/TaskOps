@@ -14,7 +14,6 @@ const CreateTask = () => {
     taskTitle,
     taskDescription,
     taskDate,
-    assignTo,
     category,
     active: false,
     newTask: true,
@@ -22,7 +21,8 @@ const CreateTask = () => {
     completed: false,
   };
   setTask(allNewTask);
-    console.log(allNewTask);
+  const data = localStorage.getItem('employees')
+    console.log(JSON.parse(data));
 
 //   Reset all states once form is submitted
   setTaskTitle("");
