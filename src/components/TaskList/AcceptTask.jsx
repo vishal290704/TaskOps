@@ -8,7 +8,7 @@ const AcceptTask = ({ task }) => {
   return (
     <div
       className="
-        w-full min-h-[250px]
+        w-full min-h-62.5
         bg-[#0f172a]
         border border-gray-700/60
         rounded-2xl
@@ -58,7 +58,7 @@ const AcceptTask = ({ task }) => {
       <div className="border-t border-gray-700/60 my-5"></div>
 
       {/* Actions */}
-      <div className="min-h-[44px] flex items-center gap-3">
+      <div className="min-h-11 flex items-center gap-3">
         <button
           className="
             flex-1
