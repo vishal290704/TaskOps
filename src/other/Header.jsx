@@ -9,7 +9,7 @@ const Header = ({ changeUser, data }) => {
   };
 
   return (
-    <header className="flex items-center justify-between mb-8">
+    <header className="flex items-center justify-between mb-2 -mt-6">
       {/* left side of header */}
       <div>
         <p className="text-sm text-gray-400 tracking-wide">Welcome back</p>
