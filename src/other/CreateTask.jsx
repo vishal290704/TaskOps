@@ -9,32 +9,39 @@ const CreateTask = () => {
   const [taskDate, setTaskDate] = useState("");
   const [assignTo, setAssignTo] = useState("");
   const [category, setCategory] = useState("");
-  const [newTask, setNewTask] = useState({})
+//   const [newTask, setNewTask] = useState({})
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const allNewTask = {
-    taskTitle,
-    taskDescription,
-    taskDate,
-    category,
-    active: false,
-    newTask: true,
-    failed: false,
-    completed: false,
-  };
-  setNewTask(allNewTask);
-  const data = userData.employees
-    console.log(data);
-    data.forEach(function(elem){
-        // console.log(elem.firstName);
-        if(assignTo == elem.firstName) {
-            // console.log(elem.tasks);
-            elem.tasks.push(newTask)
-            // console.log(elem);
-            
-        }       
-    })
+const submitHandler = (e) => {
+  e.preventDefault();
+
+const allNewTask = {
+  title: taskTitle,
+  description: taskDescription,
+  date: taskDate,
+  category,
+  status: true,
+  newTask: true,
+  completed: false,
+  failed: false,
+};
+
+
+  const updatedData = userData.map((emp) => {
+    if (emp.firstName === assignTo) {
+      return {
+        ...emp,
+        tasks: [...emp.tasks, allNewTask],
+        taskNumbers: {
+          ...emp.taskNumbers,
+          newTask: emp.taskNumbers.newTask + 1,
+           active: emp.taskNumbers.active + 1,
+        },
+      };
+    }
+    return emp;
+  });
+
+  setUserData(updatedData);
     // localStorage.setItem('employees', JSON.stringify(data))
 
 //   Reset all states once form is submitted
@@ -76,7 +83,7 @@ const CreateTask = () => {
               type="date"
             />
           </div>
-          <div>
+          {/* <div>
             <h3 className="text-sm text-gray-300 mb-1">Assign To</h3>
             <input
              value={assignTo}
@@ -87,7 +94,36 @@ const CreateTask = () => {
               type="text"
               placeholder="Employee Name"
             />
-          </div>
+          </div> */}
+          <div>
+  <h3 className="text-sm text-gray-300 mb-1">Assign To</h3>
+
+  <select
+    value={assignTo}
+    onChange={(e) => setAssignTo(e.target.value)}
+    className="text-sm py-2 px-2 w-4/5 rounded
+               outline-none bg-[#1c1c1c]
+               border border-gray-400 text-white
+               focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40
+               transition"
+    required
+  >
+    <option value="" disabled>
+      Select Employee
+    </option>
+
+    {userData?.map((emp) => (
+      <option
+        key={emp.id}
+        value={emp.firstName}
+        className="bg-[#1c1c1c] text-white"
+      >
+        {emp.firstName}
+      </option>
+    ))}
+  </select>
+</div>
+
           <div>
             <h3 className="text-sm text-gray-300 mb-1">Category</h3>
             <input

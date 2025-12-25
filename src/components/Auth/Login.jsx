@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Login = ({ handleLogin }) => {
+const Login = ({handleLogin, disabled}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -52,15 +52,18 @@ const Login = ({ handleLogin }) => {
 
           />
 
-          <button
-            type="submit"
-            className="mt-4 bg-blue-600 hover:bg-blue-700
-           text-white font-medium py-3 rounded-xl
-           transition active:scale-[0.98]"
+         <button
+  type="submit"
+  disabled={disabled}
+  className={`mt-4 py-3 rounded-xl font-medium transition
+    ${disabled
+      ? "bg-gray-600 cursor-not-allowed"
+      : "bg-blue-600 hover:bg-blue-700 active:scale-[0.98]"}
+  `}
+>
+  Login
+</button>
 
-          >
-            Login
-          </button>
         </form>
 
         <p className="text-xs text-gray-400 text-center mt-6">
