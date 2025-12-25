@@ -1,55 +1,55 @@
-import React, { useContext } from 'react'
-import { AuthContext } from '../context/AuthProvider'
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthProvider";
 
 const AllTask = () => {
+  const [userData] = useContext(AuthContext);
 
-  const [userData] = useContext(AuthContext)
-  // console.log(authData.employees);
-  
   return (
-    <div className='bg-[#1c1c1c] p-5 mt-6 rounded'>
-      <div className='bg-red-700 mb-2 py-2 px-4 flex justify-between rounded'>
-            <h2 className='text-lg font-medium w-1/5 '>Employee Name</h2>
-            <h3 className='text-lg font-medium w-1/5 '>New Task</h3>
-            <h5 className='text-lg font-medium w-1/5 '>Active Task</h5>
-            <h5 className='text-lg font-medium w-1/5 '>Completed Task</h5>
-            <h5 className='text-lg font-medium w-1/5 '>Failed Task</h5>
-        </div>
-    <div className=''>
-        {userData?.map(function(elem, idx){
-        return  <div key={idx} className='bg-gray-900 border-2 border-emerald-500 mb-2 py-2 px-4 flex justify-between rounded'>
-            <h2 className='text-lg font-medium w-1/5'>{elem.firstName}</h2>
-            <h3 className='text-lg font-medium w-1/5 text-blue-500'>{elem.taskNumbers.newTask}</h3>
-            <h5 className='text-lg font-medium w-1/5 text-yellow-400'>{elem.taskNumbers.active}</h5>
-            <h5 className='text-lg font-medium w-1/5 text-green-400'>{elem.taskNumbers.completed}</h5>
-            <h5 className='text-lg font-medium w-1/5 text-red-400'>{elem.taskNumbers.failed}</h5>
-        </div>
-      })}
-    </div>
-       
+    <div className="bg-[#1c1c1c] p-4 sm:p-5 mt-6 rounded">
+      
+      {/* ===== Desktop Header ===== */}
+      <div className="hidden md:flex bg-red-700 mb-3 py-2 px-4 rounded font-medium">
+        <div className="w-1/5">Employee</div>
+        <div className="w-1/5">New</div>
+        <div className="w-1/5">Active</div>
+        <div className="w-1/5">Completed</div>
+        <div className="w-1/5">Failed</div>
+      </div>
 
-         {/* <div className='bg-blue-700 mb-2 py-2 px-4 flex justify-between rounded'>
-            <h2>Vishal</h2>
-            <h3>Make a UI design</h3>
-            <h5>Status</h5>
-        </div>
-         <div className='bg-purple-700 mb-2 py-2 px-4 flex justify-between rounded'>
-            <h2>Vishal</h2>
-            <h3>Make a UI design</h3>
-            <h5>Status</h5>
-        </div>
-         <div className='bg-yellow-700 mb-2 py-2 px-4 flex justify-between rounded'>
-            <h2>Vishal</h2>
-            <h3>Make a UI design</h3>
-            <h5>Status</h5>
-        </div>
-         <div className='bg-green-700 mb-2 py-2 px-4 flex justify-between rounded'>
-            <h2>Vishal</h2>
-            <h3>Make a UI design</h3>
-            <h5>Status</h5>
-        </div> */}
-    </div>
-  )
-}
+      {/* ===== Data ===== */}
+      <div className="space-y-3">
+        {userData?.map((emp, idx) => (
+          <div
+            key={idx}
+            className="
+              bg-gray-900 border border-emerald-500 rounded-lg p-4
+              md:flex md:items-center md:justify-between
+            "
+          >
+            {/* Mobile Card View */}
+            <div className="md:hidden space-y-1 text-sm">
+              <p className="font-semibold text-white">
+                {emp.firstName}
+              </p>
+              <p className="text-blue-400">New: {emp.taskNumbers.newTask}</p>
+              <p className="text-yellow-400">Active: {emp.taskNumbers.active}</p>
+              <p className="text-green-400">Completed: {emp.taskNumbers.completed}</p>
+              <p className="text-red-400">Failed: {emp.taskNumbers.failed}</p>
+            </div>
 
-export default AllTask
+            {/* Desktop Row View */}
+            <div className="hidden md:flex w-full font-medium">
+              <div className="w-1/5">{emp.firstName}</div>
+              <div className="w-1/5 text-blue-400">{emp.taskNumbers.newTask}</div>
+              <div className="w-1/5 text-yellow-400">{emp.taskNumbers.active}</div>
+              <div className="w-1/5 text-green-400">{emp.taskNumbers.completed}</div>
+              <div className="w-1/5 text-red-400">{emp.taskNumbers.failed}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default AllTask;
