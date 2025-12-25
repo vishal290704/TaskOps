@@ -1,28 +1,67 @@
-import React from 'react'
+import React from "react";
 
-const CompleteTask = ({task}) => {
+const CompleteTask = ({ task }) => {
   return (
-     <div className='shrink-0 h-full w-71.25 p-5 bg-red-400 mx-5 rounded-xl relative'>
-            <div className='flex justify-between items-center'>
-                <h3 className='bg-red-600 text-sm px-3 py-1 rounded'>{task.category}</h3>
-                <h4 className='text-sm'>{task.date}</h4>
-            </div>
-            <h2 className='mt-5 text-2xl font-semibold'>{task.title} </h2>
-            <p className='text-sm mt-2'>
-                {task.description}
-            </p>
-            <div className="absolute flex justify-between gap-3 bottom-5 left-5 right-5">
-        <button
-          className="w-full bg-red-700 text-white text-sm py-2 rounded-md
-                opacity-90
-               shadow-md transition-all"
-          disabled
+    <div
+      className="
+        w-full min-h-[250px]
+        bg-[#0f172a]
+        border border-emerald-600/30
+        rounded-2xl
+        p-6
+        flex flex-col justify-between
+      "
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <span
+          className="
+            text-xs font-semibold
+            px-3 py-1 rounded-full
+            bg-emerald-500/10 text-emerald-400
+            tracking-wide
+          "
         >
-          Completed
-        </button>
-      </div>
-        </div>
-  )
-}
+          {task.category}
+        </span>
 
-export default CompleteTask
+        <span className="text-xs text-gray-400">
+          {task.date}
+        </span>
+      </div>
+
+      {/* Content */}
+      <div className="mt-5">
+        <h2 className="text-lg font-semibold text-white leading-snug">
+          {task.title}
+        </h2>
+
+        <p className="text-sm text-gray-400 mt-2 leading-relaxed min-h-[48px]">
+          {task.description}
+        </p>
+      </div>
+
+      {/* Divider */}
+      <div className="border-t border-gray-700/60 my-5"></div>
+
+      {/* Status */}
+      <div className="mt-6 min-h-[44px] flex items-center">
+  <button
+    disabled
+    className="
+      w-full
+      bg-emerald-600/20
+      text-emerald-400
+      text-sm font-medium
+      py-2.5 rounded-lg
+      cursor-default
+    "
+  >
+    Completed ✓
+  </button>
+</div>
+    </div>
+  );
+};
+
+export default CompleteTask;
