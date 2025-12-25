@@ -5,6 +5,15 @@ import CompleteTask from "./CompleteTask";
 import FailedTask from "./FailedTask";
 
 const TaskList = ({ data }) => {
+  const tasks = data?.tasks || [];
+
+  if (tasks.length === 0) {
+    return (
+      <div className="mt-10 text-center text-gray-400">
+        No tasks assigned yet.
+      </div>
+    );
+  }
   return (
     <div
       id="tasklist"
