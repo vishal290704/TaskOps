@@ -14,31 +14,28 @@ const TaskList = ({ data }) => {
       </div>
     );
   }
+
   return (
     <div
       id="tasklist"
-      className="h-[45%] overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full mt-10 py-5 rounded-lg"
+      className="
+        h-[45%]
+        overflow-x-auto
+        flex
+        items-stretch
+        gap-5
+        w-full
+        mt-10
+        py-5
+        rounded-lg
+      "
     >
-        {data?.tasks?.map((task, index) => {
-        if (task.failed) {
-          return <FailedTask key={index} task={task}  />
-        }
+      {tasks.map((task, index) => {
+        if (task.failed) return <FailedTask key={index} task={task} />;
+        if (task.completed) return <CompleteTask key={index} task={task} />;
+        if (task.newTask) return <NewTask key={index} task={task} />;
 
-        if (task.completed) {
-          return <CompleteTask key={index} task={task} />
-        }
-
-        if (task.newTask) {
-          return <NewTask key={index} task={task}/>
-        }
-
-    //     if (task.status) {
-    //       return <AcceptTask key={index} task={task}/>
-    //     }
-
-    //     return null
-    //   })} 
-     if (
+        if (
           task.status &&
           !task.newTask &&
           !task.completed &&
