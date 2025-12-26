@@ -35,7 +35,7 @@ const NewTask = ({ task }) => {
           {task.title}
         </h2>
 
-        {/* Description (fixed before expand) */}
+        {/* description of the card, it is fixed before expanded */}
         <p
           className={`text-sm text-gray-400 mt-2 leading-relaxed
             ${expanded ? "" : "line-clamp-3"}

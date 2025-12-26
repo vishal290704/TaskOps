@@ -37,7 +37,7 @@ const FailedTask = ({ task }) => {
   className={`text-sm text-gray-400 mt-2 leading-relaxed
     ${expanded ? "" : "line-clamp-3"}
   `}
-  style={{ minHeight: "72px" }}   // 👈 FIX
+  style={{ minHeight: "72px" }} 
 >
           {task.description}
         </p>
