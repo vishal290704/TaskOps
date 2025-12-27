@@ -5,8 +5,8 @@ const TaskListNumbers = ({data}) => {
   return (
     <div className='grid grid-cols-2 md:grid-cols-4 mt-5 gap-4'>
         {/* <div className='rounded-xl px-9 py-6 bg-red-400'>
-            <h2 className='flex text-2xl font-semibold items-center justify-center left-50%'>{data.taskNumbers.newTask}</h2>
-            <h3 className='flex text-xl font-medium items-center justify-center left-50%'>New Task</h3>
+          <h2 className='flex text-2xl font-semibold items-center justify-center left-50%'>{data.taskNumbers.newTask}</h2>
+          <h3 className='flex text-xl font-medium items-center justify-center left-50%'>New Task</h3>
         </div>
         <div className='rounded-xl px-9 py-6 bg-blue-400'>
             <h2 className='flex text-2xl font-semibold items-center justify-center left-50%'>{data.taskNumbers.active}</h2>
