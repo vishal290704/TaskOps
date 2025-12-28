@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "../components/Navbar/Navbar";
 
 const Header = ({ changeUser, data }) => {
   const name = data?.firstName || "Admin";
@@ -20,6 +21,7 @@ const Header = ({ changeUser, data }) => {
       </div>
 
       {/* right side of header  */}
+      <Navbar/>
       <button
         onClick={logOut}
         className="flex items-center gap-2

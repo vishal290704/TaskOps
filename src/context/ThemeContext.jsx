@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react'
 
 export const ThemeContext = createContext()
 
-const ThemeContext = ({children}) => {
+const ThemeProvider = ({children}) => {
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
     useEffect(() => {
@@ -23,4 +23,4 @@ const ThemeContext = ({children}) => {
   )
 }
 
-export default ThemeContext
+export default ThemeProvider
