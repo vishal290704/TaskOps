@@ -7,11 +7,10 @@ const Navbar = () => {
   return (
     <div
       className="w-full flex items-center px-6
-                 justify-center
-                  dark:border-gray-700"
+                 justify-end"
     >
       {/* right side container */}
-      <div className="ml-auto flex items-center">
+      
         <button
           onClick={toggleTheme}
           className="px-5 py-2 rounded-lg text-sm
@@ -22,7 +21,7 @@ const Navbar = () => {
           {theme === "dark" ? "☀ Light" : "🌙 Dark"}
         </button>
       </div>
-    </div>
+    
   );
 };
 
